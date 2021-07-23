@@ -20,12 +20,17 @@
     <script defer src="/__/firebase/8.8.0/firebase-analytics.js"></script>
     <script defer src="/__/firebase/8.8.0/firebase-remote-config.js"></script>
     <script defer src="/__/firebase/8.8.0/firebase-performance.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    
   </head>
 
   <body>
@@ -46,7 +51,7 @@
           <a class="navbar-item" href="index.html">
             Home
           </a>
-          <a class="navbar-item" href="messages.html">
+          <a class="navbar-item" href="message.html">
             Send Message
           </a>
         </div>
@@ -55,35 +60,27 @@
 
     <section class="hero is-small headerColor has-text-centered">
       <div class="hero-body">
-        <p class="title">
-          What's COVID-19 doing in your state?
-        </p>
-        <!-- <p class="subtitle">
-          [insert funny saying]
-        </p> -->
+         <section class="hero is-fullheight">
+      <div class="hero-body has-text-centered">
+        <div class="login">
+          <img src="https://www.sokolovelaw.com/wp-content/uploads/shutterstock_1717545778-675x353.jpg" width="325px" />
+          <form action="javascript:void(0);">
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea is-medium is-rounded" type="text" id="message" placeholder="Send a message to a healthcare worker!" required></textarea>
+              </div>
+            </div>
+            <br />
+            <button onclick=onSubmit()  class="button is-block is-fullwidth is-primary is-medium is-rounded">
+              Send Message
+            </button>
+          </form>
+          <br>
+        </div>
       </div>
     </section>
-    <div class="container">
-      <section class="section">
-        <h1 class="title">Enter a State (ex: AR)</h1>
-        <input
-          id="search"
-          class="input is-primary is-large"
-          type="text"
-          placeholder="Enter a search term"
-        />
-        <div class="mt-4">
-          <button id="submit" onclick="fetchServer()" class="button is-large">
-            Submit
-          </button>
-        </div>
-      </section>
-      <section class="section">
-        <h1 class="title">Results</h1>
-        <h2 id="stats" class="subtitle"></h2>
-        <div id="imageholder"></div>
-      </section>
-    </div>
+      </div>
+    </section>
 
     <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"
@@ -91,5 +88,10 @@
     ></script>
 
     <script src="/script.js" defer></script>
+    
+    <script defer src="/__/firebase/8.7.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.7.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
   </body>
 </html>
